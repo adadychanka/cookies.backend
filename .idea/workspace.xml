@@ -2,24 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.eslintrc.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/db/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logger/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/artCategories.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/artPredictions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/artists.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/arts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/predictions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/models/tokens.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/db/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/artPredictions.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/artPredictions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/arts.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/arts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/predictions.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/predictions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/tokens.js" beforeDir="false" afterPath="$PROJECT_DIR$/models/tokens.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +36,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="NEW_TOOLWINDOW_STRIPE_DEFAULTS" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -60,6 +51,7 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="A:\Projects\Cookies\cookies.backend\node_modules\prettier" />
     <property name="settings.editor.selected.configurable" value="settings.javascript.prettier" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -77,7 +69,10 @@
       <updated>1618259764492</updated>
       <workItem from="1618259766305" duration="59000" />
       <workItem from="1618510887725" duration="715000" />
-      <workItem from="1618649707392" duration="11324000" />
+      <workItem from="1618649707392" duration="11932000" />
+      <workItem from="1619094732860" duration="86000" />
+      <workItem from="1619094829828" duration="7592000" />
+      <workItem from="1619199266925" duration="1451000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,6 @@ const Tokens = sequelize.define(
       defaultValue: Sequelize.UUIDV4,
     },
     ntf: {
-      // TODO: String? Or Number?
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,

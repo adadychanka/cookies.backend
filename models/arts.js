@@ -1,5 +1,8 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const { sequelize } = require("../db");
+const Tokens = require("./tokens");
+const Artists = require("./artists");
+const Categories = require("./artCategories");
 
 const Arts = sequelize.define(
   "Arts",
@@ -36,13 +39,23 @@ const Arts = sequelize.define(
       defaultValue: false,
       allowNull: false,
     },
-    // TODO: createdBy
-    // TODO: artCategoryId
-    // TODO: tokenId
+    tokenId: DataTypes.UUID,
+    categoryId: DataTypes.INTEGER,
+    createdBy: DataTypes.INTEGER,
   },
   {
     tableName: "Arts",
   }
 );
+
+Arts.belongsTo(Tokens, {
+  foreignKey: "tokenId",
+});
+Arts.belongsTo(Categories, {
+  foreignKey: "categoryId",
+});
+Arts.belongsTo(Artists, {
+  foreignKey: "createdBy",
+});
 
 module.exports = Arts;

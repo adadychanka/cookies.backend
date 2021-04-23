@@ -1,5 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const { sequelize } = require("../db");
+const Categories = require("./artCategories");
 
 const Predictions = sequelize.define(
   "Predictions",
@@ -19,11 +20,15 @@ const Predictions = sequelize.define(
       defaultValue: false,
       allowNull: false,
     },
-    // TODO: CategoryId
+    categoryId: DataTypes.INTEGER,
   },
   {
     tableName: "Predictions",
   }
 );
+
+Predictions.belongsTo(Categories, {
+  foreignKey: "categoryId",
+});
 
 module.exports = Predictions;
