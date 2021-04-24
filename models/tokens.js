@@ -21,4 +21,4 @@ const Tokens = sequelize.define(
   }
 );
 
-module.exports = Tokens;
+module.exports = { Tokens };

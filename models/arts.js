@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const { sequelize } = require("../db");
-const Tokens = require("./tokens");
-const Artists = require("./artists");
-const Categories = require("./artCategories");
+const { Tokens } = require("./tokens");
+const { Artists } = require("./artists");
+const { ArtCategories } = require("./artCategories");
 
 const Arts = sequelize.define(
   "Arts",
@@ -40,7 +40,7 @@ const Arts = sequelize.define(
       allowNull: false,
     },
     tokenId: DataTypes.UUID,
-    categoryId: DataTypes.INTEGER,
+    atrCategoryId: DataTypes.INTEGER,
     createdBy: DataTypes.INTEGER,
   },
   {
@@ -51,11 +51,11 @@ const Arts = sequelize.define(
 Arts.belongsTo(Tokens, {
   foreignKey: "tokenId",
 });
-Arts.belongsTo(Categories, {
-  foreignKey: "categoryId",
+Arts.belongsTo(ArtCategories, {
+  foreignKey: "atrCategoryId",
 });
 Arts.belongsTo(Artists, {
   foreignKey: "createdBy",
 });
 
-module.exports = Arts;
+module.exports = { Arts };

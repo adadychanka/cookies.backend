@@ -1,6 +1,6 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const { sequelize } = require("../db");
-const Categories = require("./artCategories");
+const { ArtCategories } = require("./artCategories");
 
 const Predictions = sequelize.define(
   "Predictions",
@@ -20,15 +20,15 @@ const Predictions = sequelize.define(
       defaultValue: false,
       allowNull: false,
     },
-    categoryId: DataTypes.INTEGER,
+    artCategoryId: DataTypes.INTEGER,
   },
   {
     tableName: "Predictions",
   }
 );
 
-Predictions.belongsTo(Categories, {
-  foreignKey: "categoryId",
+Predictions.belongsTo(ArtCategories, {
+  foreignKey: "artCategoryId",
 });
 
-module.exports = Predictions;
+module.exports = { Predictions };

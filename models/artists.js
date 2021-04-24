@@ -29,4 +29,4 @@ const Artists = sequelize.define(
   }
 );
 
-module.exports = Artists;
+module.exports = { Artists };

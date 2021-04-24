@@ -1,7 +1,7 @@
 const { Sequelize, DataTypes } = require("sequelize");
 const { sequelize } = require("../db");
-const Arts = require("./arts");
-const Predictions = require("./predictions");
+const { Arts } = require("./arts");
+const { Predictions } = require("./predictions");
 
 const ArtPredictions = sequelize.define(
   "ArtPredictions",
@@ -36,4 +36,4 @@ ArtPredictions.belongsTo(Arts, {
   foreignKey: "artId",
 });
 
-module.exports = ArtPredictions;
+module.exports = { ArtPredictions };

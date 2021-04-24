@@ -29,4 +29,4 @@ const ArtCategories = sequelize.define(
   }
 );
 
-module.exports = ArtCategories;
+module.exports = { ArtCategories };

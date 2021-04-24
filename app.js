@@ -1,21 +1,23 @@
 require("dotenv").config();
 
-const app = require("express")();
-const server = require("http").Server(app);
+const http = require("http");
+const express = require("express");
 const bodyParser = require("body-parser");
-const helmet = require("helmet");
 const cors = require("cors");
+const app = express();
+const server = http.createServer(app);
+const helmet = require("helmet");
 
 const db = require("./db");
 const logger = require("./logger");
-
-const models = require("./models");
+const routes = require("./routes");
 
 app.use(helmet());
 app.use(cors());
+app.use(bodyParser.json());
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(routes);
 
 db.connect()
   .then(() => {
