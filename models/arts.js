@@ -40,7 +40,7 @@ const Arts = sequelize.define(
       allowNull: false,
     },
     tokenId: DataTypes.UUID,
-    atrCategoryId: DataTypes.INTEGER,
+    artCategoryId: DataTypes.INTEGER,
     createdBy: DataTypes.INTEGER,
   },
   {
@@ -52,7 +52,7 @@ Arts.belongsTo(Tokens, {
   foreignKey: "tokenId",
 });
 Arts.belongsTo(ArtCategories, {
-  foreignKey: "atrCategoryId",
+  foreignKey: "artCategoryId",
 });
 Arts.belongsTo(Artists, {
   foreignKey: "createdBy",
