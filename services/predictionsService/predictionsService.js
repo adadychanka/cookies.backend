@@ -45,15 +45,17 @@ const getPredictionsByArt = async (art) => {
   }
 };
 
-const getPredictionsByIds = async (ids) => {
-  if (!Array.isArray(ids)) {
+const getPredictionsByIds = async (ids = []) => {
+  if (ids.length === 0) {
     return [];
   }
 
   try {
     const predictions = await Predictions.findAll({
       where: {
-        [Op.in]: ids,
+        id: {
+          [Op.in]: ids,
+        },
       },
     });
 
@@ -63,7 +65,45 @@ const getPredictionsByIds = async (ids) => {
   }
 };
 
+const emptyResult = { rows: [], total: 0 };
+const getAssignedPredictions = async (artId) => {
+  if (!artId) {
+    return emptyResult;
+  }
+
+  const art = await artsService.getArtById(artId);
+  if (!art) {
+    return emptyResult;
+  }
+
+  const artPredictions = await artPredictionsService.getArtPredictionsByArt(art);
+  const predictionsIds = artPredictions.map((artPrediction) => artPrediction.predictionId);
+
+  const assignedPredictions = await getPredictionsByIds(predictionsIds);
+
+  const rows = assignedPredictions.map((prediction) => {
+    const predictionId = prediction.id;
+
+    const artPrediction = artPredictions.find((artPrediction) => artPrediction.predictionId === predictionId);
+    const wallet = artPrediction?.wallet ?? null;
+
+    const row = {
+      id: predictionId,
+      wallet,
+      text: prediction.text,
+    };
+
+    return row;
+  });
+  const total = art?.amount ?? 0;
+
+  const result = { rows, total };
+
+  return result;
+};
+
 module.exports = {
   generatePrediction,
   getPredictionsByIds,
+  getAssignedPredictions,
 };

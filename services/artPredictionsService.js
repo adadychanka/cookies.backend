@@ -2,13 +2,14 @@ const { ArtPredictions } = require("../models/artPredictions");
 const logger = require("../logger");
 
 const getArtPredictionsByArt = async (art) => {
-  if (!art) return [];
+  const artId = art?.id;
+  if (!artId) return [];
 
   try {
     const artPredictions = await ArtPredictions.findAll({
       where: {
         isActive: true,
-        artId: art.id,
+        artId: artId,
       },
     });
 
@@ -41,6 +42,7 @@ const saveArtPrediction = async (prediction, art, wallet) => {
     logger.error("Unable to save artPrediction", error);
   }
 };
+
 module.exports = {
   getArtPredictionsByArt,
   saveArtPrediction,

@@ -1,5 +1,6 @@
-const { generatePrediction } = require("./predictionsService");
+const { generatePrediction, getAssignedPredictions } = require("./predictionsService");
 
 module.exports = {
   generatePrediction,
+  getAssignedPredictions,
 };
