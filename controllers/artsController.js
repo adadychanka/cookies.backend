@@ -1,20 +1,32 @@
+const uuid = require("uuid");
 const artsService = require("../services/artsService");
+const { toApiResult } = require("./utils");
 
 const getArts = async (req, res) => {
   const arts = await artsService.getArts();
 
-  return res.status(200).send(arts);
+  const result = toApiResult(arts);
+  return res.status(200).send(result);
 };
 
 const getArtById = async (req, res) => {
-  const artId = "d43a4254-2459-4808-827a-be0736db9bf3";
+  const artId = req.params?.id ?? null;
+
+  const isIdValid = uuid.validate(artId);
+  if (!isIdValid) {
+    const result = toApiResult(null, "Art id is not valid");
+    return res.status(400).send(result);
+  }
+
   const art = await artsService.getArtById(artId);
 
   if (!art) {
-    return res.status(404).send();
+    const result = toApiResult(null, "Art was not found");
+    return res.status(404).send(result);
   }
 
-  return art.status(200).send(art);
+  const result = toApiResult(art);
+  return res.status(200).send(result);
 };
 
 module.exports = {
