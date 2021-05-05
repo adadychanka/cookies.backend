@@ -1,18 +1,9 @@
 const { Sequelize } = require("sequelize");
 const logger = require("../logger");
-const config = require("config");
+const config = require("../config");
+const dbConfig = config.db;
 
-// const { database, user, password, options } = config.get('dbConfig');
-const database = "Cookies";
-const user = "postgres";
-const password = "1";
-const options = {
-  host: "localhost",
-  dialect: "postgres",
-  seederStorage: "sequelize",
-};
-
-const sequelize = new Sequelize(database, user, password, options);
+const sequelize = new Sequelize(dbConfig.database, dbConfig.user, dbConfig.password, dbConfig.options);
 
 const connect = async () => {
   try {
