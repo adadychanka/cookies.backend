@@ -10,7 +10,7 @@ const Tokens = sequelize.define(
       allowNull: false,
       defaultValue: Sequelize.UUIDV4,
     },
-    ntf: {
+    nft: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
