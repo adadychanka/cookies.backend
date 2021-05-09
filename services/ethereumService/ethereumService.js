@@ -1,6 +1,7 @@
 const Web3 = require("web3");
-const logger = require("../logger");
-const config = require("../config");
+const logger = require("../../logger");
+const config = require("../../config");
+const { RaribleContract } = require("./RaribleContract");
 
 logger.info("Start connecting to ethereum blockchain provider");
 const providerUrl = config.eth.providerUrl;
@@ -16,6 +17,19 @@ const isValidEthereumAddress = (address) => {
   }
 };
 
+const isAddressHoldTokens = async (address, nft) => {
+  const raribleContract = new RaribleContract(web3);
+
+  try {
+    const balance = await raribleContract.getBalance(address, nft);
+
+    return balance > 0;
+  } catch (error) {
+    logger.error("Unable get rarible contract info", error);
+  }
+};
+
 module.exports = {
   isValidEthereumAddress,
+  isAddressHoldTokens,
 };

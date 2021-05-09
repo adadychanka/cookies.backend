@@ -1,4 +1,4 @@
-const predictionsService = require("../services/predictionsService/predictionsService");
+const predictionsService = require("../services/predictionsService");
 const walletsService = require("../services/walletsService");
 const { toApiResult } = require("./utils");
 

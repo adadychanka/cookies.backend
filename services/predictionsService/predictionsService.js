@@ -3,11 +3,21 @@ const { Predictions } = require("../../models/predictions");
 const { selectRandomPrediction, hasAvailablePredictions, getAvailablePredictions } = require("./utils");
 const artPredictionsService = require("../artPredictionsService");
 const artsService = require("../artsService");
+const tokensService = require("../tokensService");
+const walletsService = require("../walletsService");
 const logger = require("../../logger");
 
 const generatePrediction = async (artId, wallet) => {
   const art = await artsService.getArtById(artId);
   if (!art) return null;
+
+  const token = await tokensService.getTokenById(art.tokenId);
+  if (!token) return null;
+
+  const isValidPurchase = walletsService.isValidPurchase(token.nft, wallet);
+  if (!isValidPurchase) {
+    return null;
+  }
 
   const assignedArtPredictions = await artPredictionsService.getArtPredictionsByArt(art);
 

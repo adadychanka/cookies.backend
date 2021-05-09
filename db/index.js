@@ -20,7 +20,10 @@ const sync = async () => {
     // TODO: add match param for except execution on prod
     logger.info("Start syncing models");
 
-    await sequelize.sync({ alter: true });
+    await sequelize.sync({
+      // force: true,
+      alter: true,
+    });
 
     logger.info("End syncing models");
   } catch (error) {
