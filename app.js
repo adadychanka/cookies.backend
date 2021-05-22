@@ -12,6 +12,8 @@ const db = require("./db");
 const logger = require("./logger");
 const routes = require("./routes");
 
+const jobs = require("./jobs");
+
 app.use(helmet());
 app.use(cors());
 app.use(bodyParser.json());
@@ -28,6 +30,8 @@ db.connect()
     (async () => {
       await db.sync();
     })();
+
+    jobs.updatePredictionsOwnersJob.start();
   })
   .catch((error) => {
     logger.error("Server cannot start", error);
