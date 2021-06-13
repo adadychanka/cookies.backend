@@ -12,12 +12,10 @@ const db = require("./db");
 const logger = require("./logger");
 const routes = require("./routes");
 
-const jobs = require("./jobs");
+const { runListenRaribleEvents } = require("./services");
 
 app.use(helmet());
 app.use(cors());
-app.use(bodyParser.json());
-
 app.use(bodyParser.json());
 app.use(routes);
 
@@ -31,7 +29,10 @@ db.connect()
       await db.sync();
     })();
 
-    jobs.updatePredictionsOwnersJob.start();
+    // Rarible listeners
+    (async () => {
+      await runListenRaribleEvents();
+    })();
   })
   .catch((error) => {
     logger.error("Server cannot start", error);

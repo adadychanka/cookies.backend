@@ -388,32 +388,5 @@ const abi = [
     type: "function",
   },
 ];
-const raribleContractAddress = "0xd07dc4262BCDbf85190C01c996b4C06a461d2430";
 
-class RaribleContract {
-  constructor(web3) {
-    this.contract = new web3.eth.Contract(abi, raribleContractAddress);
-
-    this.getBalance = this.getBalance.bind(this);
-  }
-
-  async getName() {
-    return await this.contract.methods.name().call();
-  }
-
-  async getBalance(address, tokenId) {
-    return await this.contract.methods.balanceOf(address, tokenId).call();
-  }
-
-  async getCreators(tokenId) {
-    return await this.contract.methods.creators(tokenId).call();
-  }
-
-  async getOwner(tokenId) {
-    return await this.contract.methods.ownerOf(tokenId).call();
-  }
-}
-
-module.exports = {
-  RaribleContract,
-};
+module.exports = abi;

@@ -1,20 +1,3 @@
-// const config = require("config");
-// const {
-//   database,
-//   user,
-//   password,
-//   options: { host, dialect, seederStorage },
-// } = config.get("dbConfig");
-//
-// const base = {
-//   username: user,
-//   password,
-//   database,
-//   host,
-//   dialect,
-//   seederStorage,
-// };
-
 const db = (() => {
   const database = process.env.DB_NAME;
   const user = process.env.DB_USER;
@@ -35,16 +18,24 @@ const db = (() => {
 
 const eth = (() => {
   const providerUrl = process.env.ETH_PROVIDER_URL;
+  const wsProviderUrl = process.env.ETH_WS_PROVIDER_URL;
 
   return {
     providerUrl,
+    wsProviderUrl,
+  };
+})();
+
+const art = (() => {
+  const trackedNft = (process.env?.RARIBLE_TRACKED_ARTS ?? "").split(",");
+
+  return {
+    trackedNft,
   };
 })();
 
 module.exports = {
-  // development: base,
-  // stage: base,
-  // production: base,
   db,
   eth,
+  art,
 };

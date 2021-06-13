@@ -1,35 +1,74 @@
 const Web3 = require("web3");
 const logger = require("../../logger");
 const config = require("../../config");
-const { RaribleContract } = require("./RaribleContract");
 
-logger.info("Start connecting to ethereum blockchain provider");
+logger.info("Start initializing connection to ethereum blockchain provider");
 const providerUrl = config.eth.providerUrl;
 const provider = new Web3.providers.HttpProvider(providerUrl);
-const web3 = new Web3(provider);
-logger.info("End connecting to ethereum blockchain provider");
+const httpWeb3 = new Web3(provider);
+
+const wsProviderUrl = config.eth.wsProviderUrl;
+const wsProvider = new Web3.providers.WebsocketProvider(wsProviderUrl);
+const wsWeb3 = new Web3(wsProvider);
+
+logger.info("End initializing connection to ethereum blockchain provider");
 
 const isValidEthereumAddress = (address) => {
   try {
-    return web3.utils.isAddress(address);
+    return httpWeb3.utils.isAddress(address);
+  } catch (error) {
+    logger.error("Unable to check validity of ethereum address");
+    return false;
+  }
+};
+
+const isZeroAddress = (address) => {
+  try {
+    return httpWeb3.utils.toBN(address).isZero();
   } catch (error) {
     logger.error("Unable to check validity of ethereum address");
   }
 };
 
-const isAddressHoldTokens = async (address, nft) => {
-  const raribleContract = new RaribleContract(web3);
-
+const convertToValidAddress = (address) => {
   try {
-    const balance = await raribleContract.getBalance(address, nft);
-
-    return balance > 0;
+    return httpWeb3.utils.toChecksumAddress(address);
   } catch (error) {
-    logger.error("Unable get rarible contract info", error);
+    logger.error("Unable convert address to checksummed address");
+    return null;
   }
+};
+
+const getHttpWeb3Instance = () => {
+  return httpWeb3;
+};
+
+const getWsWeb3Instance = () => {
+  return wsWeb3;
+};
+
+const getWeb3InstanceProtocol = (web3) => {
+  if (web3?.currentProvider instanceof Web3.providers.WebsocketProvider) {
+    return Protocols.WebSocket;
+  }
+  if (web3?.currentProvider instanceof Web3.providers.HttpProvider) {
+    return Protocols.Http;
+  }
+};
+
+const Protocols = {
+  Http: "http",
+  WebSocket: "ws",
 };
 
 module.exports = {
   isValidEthereumAddress,
-  isAddressHoldTokens,
+  isZeroAddress,
+  convertToValidAddress,
+
+  getHttpWeb3Instance,
+  getWsWeb3Instance,
+  getWeb3InstanceProtocol,
+
+  Protocols,
 };

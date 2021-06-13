@@ -6,7 +6,8 @@ const generatePrediction = async (req, res) => {
   const wallet = req.params?.wallet ?? null;
 
   const isValidWallet = walletsService.isValidWallet(wallet);
-  if (!isValidWallet) {
+  const isZeroWallet = walletsService.isZeroWallet(wallet);
+  if (!isValidWallet && !isZeroWallet) {
     const result = toApiResult(null, "Invalid wallet");
     return res.status(400).send(result);
   }

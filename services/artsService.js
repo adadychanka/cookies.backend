@@ -1,4 +1,5 @@
 const { Arts } = require("../models/arts");
+const { Tokens } = require("../models/tokens");
 const logger = require("../logger");
 
 const getArts = async () => {
@@ -15,6 +16,21 @@ const getArts = async () => {
   }
 };
 
+const getArtsWithTokens = async () => {
+  try {
+    const arts = await Arts.findAll({
+      where: {
+        isActive: true,
+      },
+      include: [{ model: Tokens }],
+    });
+
+    return arts ?? [];
+  } catch (error) {
+    logger.error("Unable to get arts with tokens", error);
+  }
+};
+
 const getArtById = async (artId) => {
   try {
     const art = await Arts.findByPk(artId, { where: { isActive: true } });
@@ -27,5 +43,6 @@ const getArtById = async (artId) => {
 
 module.exports = {
   getArts,
+  getArtsWithTokens,
   getArtById,
 };

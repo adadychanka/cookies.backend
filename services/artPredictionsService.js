@@ -19,6 +19,24 @@ const getArtPredictionsByArt = async (art) => {
   }
 };
 
+const disableArtPrediction = async (artPredictionId) => {
+  try {
+    const artPrediction = await ArtPredictions.findByPk(artPredictionId);
+    if (artPrediction) {
+      artPrediction.isActive = false;
+
+      await artPrediction.save();
+
+      return true;
+    } else {
+      return false;
+    }
+  } catch (error) {
+    logger.error("Unable to disable artPrediction");
+    return false;
+  }
+};
+
 const saveArtPrediction = async (prediction, art, wallet) => {
   const artId = art?.id;
   const predictionId = prediction?.id;
@@ -43,7 +61,22 @@ const saveArtPrediction = async (prediction, art, wallet) => {
   }
 };
 
+const buildBasedOnInstance = (instance) => {
+  try {
+    const newInstance = ArtPredictions.build(instance.get());
+
+    return newInstance;
+  } catch (error) {
+    logger.error("Unable build artPrediction", error);
+  }
+};
+
 module.exports = {
   getArtPredictionsByArt,
+
   saveArtPrediction,
+
+  disableArtPrediction,
+
+  buildBasedOnInstance,
 };
