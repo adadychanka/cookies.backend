@@ -1,23 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Add cron job running every minute">
-      <change afterPath="$PROJECT_DIR$/services/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/raribleService/RaribleContract/RaribleContract.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/raribleService/RaribleContract/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/raribleService/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/raribleService/raribleService.js" afterDir="false" />
+    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controllers/predictionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/controllers/predictionsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/artPredictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/artPredictionsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/artsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/artsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/ethereumService/RaribleContract.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/raribleService/RaribleContract/abi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/ethereumService/ethereumService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/ethereumService/ethereumService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/ethereumService/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/ethereumService/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/predictionsService/predictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/predictionsService/predictionsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/walletsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/services/walletsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +111,8 @@
       <workItem from="1623179384668" duration="345000" />
       <workItem from="1623325770357" duration="109000" />
       <workItem from="1623601971077" duration="1798000" />
-      <workItem from="1623605689968" duration="6945000" />
+      <workItem from="1623605689968" duration="7491000" />
+      <workItem from="1624479732225" duration="754000" />
     </task>
     <task id="LOCAL-00001" summary="Add cron job running every minute">
       <created>1621702667359</created>
@@ -135,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621702667359</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Add rarible event handlers">
+      <created>1623616855518</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1623616855519</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +165,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add cron job running every minute" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add cron job running every minute" />
+    <MESSAGE value="Add rarible event handlers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add rarible event handlers" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

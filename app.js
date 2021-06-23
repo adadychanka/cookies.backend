@@ -8,11 +8,11 @@ const app = express();
 const server = http.createServer(app);
 const helmet = require("helmet");
 
-const db = require("./db");
-const logger = require("./logger");
-const routes = require("./routes");
+const db = require("./src/db");
+const logger = require("./src/logger");
+const routes = require("./src/routes");
 
-const { runListenRaribleEvents } = require("./services");
+const { runListenRaribleEvents } = require("./src/services");
 
 app.use(helmet());
 app.use(cors());

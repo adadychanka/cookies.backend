@@ -1,6 +1,6 @@
 const raribleService = require("./raribleService");
-const artPredictionsService = require("../services/artPredictionsService");
-const artsService = require("../services/artsService");
+const artPredictionsService = require("./artPredictionsService");
+const artsService = require("./artsService");
 
 const trackTransferSingleEventHandler = async (response) => {
   const isMint = raribleService.isMintTokens(response);
