@@ -29,7 +29,28 @@ const getArtById = async (req, res) => {
   return res.status(200).send(result);
 };
 
+const getDogecoinPredictionBallArt = async (req, res) => {
+  const artId = artsService.ARTS.DogecoinPredictionBall ?? null;
+
+  const isIdValid = uuid.validate(artId);
+  if (!isIdValid) {
+    const result = toApiResult(null, "Art id is not valid");
+    return res.status(400).send(result);
+  }
+
+  const art = await artsService.getArtById(artId);
+
+  if (!art) {
+    const result = toApiResult(null, "Art was not found");
+    return res.status(404).send(result);
+  }
+
+  const result = toApiResult(art);
+  return res.status(200).send(result);
+};
+
 module.exports = {
   getArts,
   getArtById,
+  getDogecoinPredictionBallArt,
 };

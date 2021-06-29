@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="">
+    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Move to src">
+      <change afterPath="$PROJECT_DIR$/src/models/arts/artsMapping.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/arts/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/artsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/artsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/arts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/arts/arts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/arts.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/arts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/artsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artsService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/walletsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/walletsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +64,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -65,6 +73,8 @@
       <recent name="A:\Projects\Cookies\cookies.backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/models/arts" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/services/raribleService" />
       <recent name="$PROJECT_DIR$/services/ethereumService/RaribleContract" />
       <recent name="$PROJECT_DIR$/services/ethereumService" />
@@ -112,7 +122,9 @@
       <workItem from="1623325770357" duration="109000" />
       <workItem from="1623601971077" duration="1798000" />
       <workItem from="1623605689968" duration="7491000" />
-      <workItem from="1624479732225" duration="754000" />
+      <workItem from="1624479732225" duration="1839000" />
+      <workItem from="1624531447930" duration="1073000" />
+      <workItem from="1624982526125" duration="5862000" />
     </task>
     <task id="LOCAL-00001" summary="Add cron job running every minute">
       <created>1621702667359</created>
@@ -128,7 +140,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623616855519</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Move to src">
+      <created>1624481243911</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1624481243912</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,7 +185,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Add cron job running every minute" />
     <MESSAGE value="Add rarible event handlers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add rarible event handlers" />
+    <MESSAGE value="Move to src" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move to src" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

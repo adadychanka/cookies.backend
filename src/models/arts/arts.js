@@ -1,8 +1,8 @@
 const { Sequelize, DataTypes } = require("sequelize");
-const { sequelize } = require("../db");
-const { Tokens } = require("./tokens");
-const { Artists } = require("./artists");
-const { ArtCategories } = require("./artCategories");
+const { sequelize } = require("../../db");
+const { Tokens } = require("../tokens");
+const { Artists } = require("../artists");
+const { ArtCategories } = require("../artCategories");
 
 const Arts = sequelize.define(
   "Arts",

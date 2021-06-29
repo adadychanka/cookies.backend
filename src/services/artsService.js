@@ -1,4 +1,4 @@
-const { Arts } = require("../models/arts");
+const { Arts, ArtsMapping } = require("../models/arts");
 const { Tokens } = require("../models/tokens");
 const logger = require("../logger");
 
@@ -41,8 +41,12 @@ const getArtById = async (artId) => {
   }
 };
 
+const ARTS = ArtsMapping;
+
 module.exports = {
   getArts,
   getArtsWithTokens,
   getArtById,
+
+  ARTS,
 };

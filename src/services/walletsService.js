@@ -19,10 +19,10 @@ const isZeroWallet = (wallet) => {
   return ethService.isZeroAddress(address);
 };
 
-const isValidPurchase = (nft, wallet) => {
+const isValidPurchase = async (nft, wallet) => {
   if (!wallet || !nft) return false;
 
-  const hasTokens = raribleService.isAddressHoldTokens(wallet, nft);
+  const hasTokens = await raribleService.isAddressHoldTokens(wallet, nft);
 
   return hasTokens;
 };

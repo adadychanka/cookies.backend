@@ -16,7 +16,7 @@ const generatePrediction = async (artId, wallet) => {
   if (!token) return null;
 
   const holderAddress = ethereumService.convertToValidAddress(wallet);
-  const isValidPurchase = walletsService.isValidPurchase(token.nft, holderAddress);
+  const isValidPurchase = await walletsService.isValidPurchase(token.nft, holderAddress);
   if (!isValidPurchase) {
     return null;
   }
