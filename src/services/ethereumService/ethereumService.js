@@ -30,6 +30,11 @@ const isZeroAddress = (address) => {
   }
 };
 
+/**
+ * Convert raw ethereum address to checksummed ethereum address
+ * @param address - raw ethereum address
+ * @returns {string|null} - checksummed ethereum address
+ */
 const convertToValidAddress = (address) => {
   try {
     return httpWeb3.utils.toChecksumAddress(address);

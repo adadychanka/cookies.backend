@@ -23,8 +23,17 @@ const generatePrediction = async (artId, wallet) => {
 
   const assignedArtPredictions = await artPredictionsService.getArtPredictionsByArt(art);
 
-  const canGeneratePrediction = hasAvailablePredictions(art, assignedArtPredictions);
+  const alreadyGeneratedPrediction = assignedArtPredictions.find(
+    (artPrediction) => artPrediction.wallet === holderAddress
+  );
+  if (alreadyGeneratedPrediction) {
+    const { predictionId = null } = alreadyGeneratedPrediction;
+    const prediction = await getPredictionById(predictionId);
 
+    return prediction;
+  }
+
+  const canGeneratePrediction = hasAvailablePredictions(art, assignedArtPredictions);
   if (canGeneratePrediction) {
     const predictions = await getPredictionsByArt(art);
     const availablePredictions = getAvailablePredictions(predictions, assignedArtPredictions);
@@ -74,6 +83,20 @@ const getPredictionsByIds = async (ids = []) => {
     return predictions;
   } catch (error) {
     logger.error("Unable to get predictions by ids", error);
+  }
+};
+
+const getPredictionById = async (id) => {
+  if (!id) {
+    return null;
+  }
+
+  try {
+    const prediction = await Predictions.findByPk(id);
+
+    return prediction;
+  } catch (error) {
+    logger.error("Unable to get prediction by id", error);
   }
 };
 

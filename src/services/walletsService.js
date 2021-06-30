@@ -19,6 +19,12 @@ const isZeroWallet = (wallet) => {
   return ethService.isZeroAddress(address);
 };
 
+/**
+ * Validate ownership of NFT on ethereum address
+ * @param nft - NFT id
+ * @param wallet - Ethereum address
+ * @returns {Promise<boolean>} - Is Valid
+ */
 const isValidPurchase = async (nft, wallet) => {
   if (!wallet || !nft) return false;
 
