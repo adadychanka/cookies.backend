@@ -1,6 +1,9 @@
+const { Op } = require("sequelize");
 const { Arts, ArtsMapping } = require("../models/arts");
 const { Tokens } = require("../models/tokens");
 const logger = require("../logger");
+
+const ARTS = ArtsMapping;
 
 const getArts = async () => {
   try {
@@ -41,12 +44,40 @@ const getArtById = async (artId) => {
   }
 };
 
-const ARTS = ArtsMapping;
+const getArtsWithNftToTrack = async () => {
+  const ids = [ArtsMapping.DogecoinPredictionBall];
+
+  try {
+    const arts = await Arts.findAll({
+      where: {
+        isActive: true,
+        id: {
+          [Op.in]: ids,
+        },
+      },
+      include: [{ model: Tokens }],
+    });
+
+    const artWithNft = (arts ?? []).map((art) => {
+      const nft = art?.Token?.nft;
+
+      return {
+        art,
+        nft,
+      };
+    });
+
+    return artWithNft ?? [];
+  } catch (error) {
+    logger.error("Unable to get arts to track", error);
+  }
+};
 
 module.exports = {
   getArts,
   getArtsWithTokens,
   getArtById,
+  getArtsWithNftToTrack,
 
   ARTS,
 };

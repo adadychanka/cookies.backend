@@ -26,16 +26,7 @@ const eth = (() => {
   };
 })();
 
-const art = (() => {
-  const trackedNft = (process.env?.RARIBLE_TRACKED_ARTS ?? "").split(",");
-
-  return {
-    trackedNft,
-  };
-})();
-
 module.exports = {
   db,
   eth,
-  art,
 };

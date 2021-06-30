@@ -56,6 +56,7 @@ const getPredictionsByArt = async (art) => {
   try {
     const predictions = await Predictions.findAll({
       where: {
+        isActive: true,
         artId: art.id,
       },
     });
@@ -74,6 +75,7 @@ const getPredictionsByIds = async (ids = []) => {
   try {
     const predictions = await Predictions.findAll({
       where: {
+        isActive: true,
         id: {
           [Op.in]: ids,
         },

@@ -1,4 +1,3 @@
-const { art: artConfig } = require("../../config");
 const { RaribleContract, Events, TransferEventResultFields } = require("./RaribleContract");
 const { getWsWeb3Instance, getHttpWeb3Instance, isZeroAddress } = require("../ethereumService/ethereumService");
 const logger = require("../../logger");
@@ -27,24 +26,37 @@ const isMintTokens = (eventResponse) => {
 
 const processTransferSingleEvent = (eventResponse) => {
   const values = eventResponse?.returnValues ?? {};
-  const amount = parseInt(values[TransferEventResultFields.TokenAmount]);
 
   const data = {
-    nft: values[TransferEventResultFields.TokenId],
-    amount,
+    tokens: [
+      {
+        id: values[TransferEventResultFields.TokenId],
+        amount: parseInt(values[TransferEventResultFields.TokenAmount]),
+      },
+    ],
     fromWallet: values[TransferEventResultFields.From],
     toWallet: values[TransferEventResultFields.To],
   };
 
   return data;
 };
+
 const processTransferBatchEvent = (eventResponse) => {
   const values = eventResponse?.returnValues ?? {};
-  const amount = parseInt(values[TransferEventResultFields.TokenAmount]);
+  const amounts = parseInt(values[TransferEventResultFields.TokenAmount]);
+  const tokenIds = values[TransferEventResultFields.TokenId];
+
+  const tokens = tokenIds.map((tokenId, index) => {
+    const amount = amounts[index];
+
+    return {
+      id: tokenId,
+      amount,
+    };
+  });
 
   const data = {
-    nft: values[TransferEventResultFields.TokenId],
-    amount,
+    tokens,
     fromWallet: values[TransferEventResultFields.From],
     toWallet: values[TransferEventResultFields.To],
   };
@@ -52,13 +64,12 @@ const processTransferBatchEvent = (eventResponse) => {
   return data;
 };
 
-const trackTransferSingleEvent = (callback) => {
+const trackTransferSingleEvent = (callback, trackedTokens = []) => {
   const web3 = getWsWeb3Instance();
   const raribleContract = new RaribleContract(web3);
   const eventName = Events.TransferSingle;
-  const { trackedNft = [] } = artConfig.trackedNft;
   const options = {
-    // filter: { [TransferEventResultFields.TokenId]: trackedNft },
+    filter: { [TransferEventResultFields.TokenId]: trackedTokens },
   };
 
   logger.info(`Start subscribing to RaribleContract ${eventName} event`);
@@ -73,14 +84,13 @@ const trackTransferSingleEvent = (callback) => {
   return event;
 };
 
-const trackTransferBatchEvent = (callback) => {
+const trackTransferBatchEvent = (callback, trackedTokens = []) => {
   const web3 = getWsWeb3Instance();
   const raribleContract = new RaribleContract(web3);
   const eventName = Events.TransferBatch;
-  const { trackedNft = [] } = artConfig.trackedNft;
 
   const options = {
-    // filter: { [TransferEventResultFields.TokenId]: trackedNft },
+    filter: { [TransferEventResultFields.TokenId]: trackedTokens },
   };
 
   logger.info(`Start subscribing to RaribleContract ${eventName} event`);

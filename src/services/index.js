@@ -8,12 +8,9 @@ const trackTransferSingleEventHandler = async (response) => {
     return;
   }
 
-  const { nft = null, amount = 1, fromWallet = null, toWallet = null } = raribleService.processTransferSingleEvent(
-    response
-  );
-  // todo: remove mock
-  // const nft = "139351";
-  // const fromWallet = "0x04b80f3d95fe31b75fe79c0b5b7ef01132c7c07d";
+  const { tokens = [], fromWallet = null, toWallet = null } = raribleService.processTransferSingleEvent(response);
+  const nft = tokens[0]?.id;
+  const amount = tokens[0]?.amount;
 
   const activeArts = await artsService.getArtsWithTokens();
   const artWithSameNft = activeArts.find((art) => art?.Token?.nft === nft);
@@ -38,12 +35,47 @@ const trackTransferSingleEventHandler = async (response) => {
 };
 
 const trackTransferBatchEventHandler = async (response) => {
-  const { nft = null, fromWallet = null, toWallet = null } = raribleService.processTransferSingleEvent(response);
+  const isMint = raribleService.isMintTokens(response);
+  if (isMint) {
+    return;
+  }
+
+  const { tokens = [], fromWallet = null, toWallet = null } = raribleService.processTransferBatchEvent(response);
+
+  const activeArts = await artsService.getArtsWithTokens();
+  const artsWithSameNft = activeArts.filter((art) => {
+    const artTokenId = art?.Token?.nft;
+
+    return tokens.some((token) => token.id === artTokenId);
+  });
+
+  for (const artWithSameNft of artsWithSameNft) {
+    const { id = null, amount = 0 } = tokens.find((token) => token.id === artWithSameNft?.Token?.nft);
+    const artPredictions = await artPredictionsService.getArtPredictionsByArt(artWithSameNft);
+
+    const artPredictionsToUpdate = artPredictions
+      .filter((artPrediction) => artPrediction.wallet === fromWallet)
+      .slice(0, amount);
+
+    for (const artPrediction of artPredictionsToUpdate) {
+      const newArtPrediction = artPredictionsService.buildBasedOnInstance(artPrediction);
+
+      const isDisabled = await artPredictionsService.disableArtPrediction(artPrediction.id);
+      if (isDisabled) {
+        const prediction = { id: newArtPrediction.predictionId };
+
+        await artPredictionsService.saveArtPrediction(prediction, artWithSameNft, toWallet);
+      }
+    }
+  }
 };
 
 const runListenRaribleEvents = async () => {
-  await raribleService.trackTransferSingleEvent(trackTransferSingleEventHandler);
-  await raribleService.trackTransferBatchEvent(trackTransferBatchEventHandler);
+  const arts = await artsService.getArtsWithNftToTrack();
+  const trackedTokens = arts.map((art) => art.nft).filter((nft) => nft);
+
+  await raribleService.trackTransferSingleEvent(trackTransferSingleEventHandler, trackedTokens);
+  await raribleService.trackTransferBatchEvent(trackTransferBatchEventHandler, trackedTokens);
 };
 
 module.exports = {
