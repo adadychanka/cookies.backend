@@ -6,6 +6,14 @@ const db = (() => {
     host: process.env.DB_HOST,
     post: process.env.DB_PORT,
     dialect: "postgres",
+    ssl: true,
+    native: true,
+    dialectOptions: {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      },
+    },
     seederStorage: "sequelize",
   };
 
