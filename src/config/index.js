@@ -1,20 +1,38 @@
+const Environment = {
+  DEV: "DEV",
+  STAGE: "STAGE",
+  PROD: "PROD",
+};
+
 const db = (() => {
   const database = process.env.DB_NAME;
   const user = process.env.DB_USER;
   const password = process.env.DB_PASSWORD;
-  const options = {
+
+  let options = {
     host: process.env.DB_HOST,
     post: process.env.DB_PORT,
     dialect: "postgres",
-    ssl: true,
-    dialectOptions: {
-      ssl: {
-        require: true,
-        rejectUnauthorized: false,
-      },
-    },
     seederStorage: "sequelize",
   };
+
+  if (process.env.ENV !== Environment.DEV) {
+    // To connect to remote DB
+    const extraOptions = {
+      ssl: true,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false,
+        },
+      },
+    };
+
+    options = {
+      ...options,
+      ...extraOptions,
+    };
+  }
 
   return {
     database,
