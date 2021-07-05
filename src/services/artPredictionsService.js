@@ -16,6 +16,7 @@ const getArtPredictionsByArt = async (art) => {
     return artPredictions;
   } catch (error) {
     logger.error("Unable to get artPredictions by art", error);
+    return null;
   }
 };
 
@@ -58,6 +59,7 @@ const saveArtPrediction = async (prediction, art, wallet) => {
     return result;
   } catch (error) {
     logger.error("Unable to save artPrediction", error);
+    return null;
   }
 };
 
@@ -68,6 +70,7 @@ const buildBasedOnInstance = (instance) => {
     return newInstance;
   } catch (error) {
     logger.error("Unable build artPrediction", error);
+    return null;
   }
 };
 

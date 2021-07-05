@@ -16,6 +16,7 @@ const getArts = async () => {
     return arts ?? [];
   } catch (error) {
     logger.error("Unable to get arts", error);
+    return [];
   }
 };
 
@@ -31,6 +32,7 @@ const getArtsWithTokens = async () => {
     return arts ?? [];
   } catch (error) {
     logger.error("Unable to get arts with tokens", error);
+    return [];
   }
 };
 
@@ -41,6 +43,7 @@ const getArtById = async (artId) => {
     return art ?? null;
   } catch (error) {
     logger.error("Unable to get art by id", error);
+    return null;
   }
 };
 
@@ -70,6 +73,7 @@ const getArtsWithNftToTrack = async () => {
     return artWithNft ?? [];
   } catch (error) {
     logger.error("Unable to get arts to track", error);
+    return [];
   }
 };
 

@@ -12,6 +12,8 @@ const isAddressHoldTokens = async (address, nft) => {
     return balance > 0;
   } catch (error) {
     logger.error("Unable get rarible contract info", error);
+
+    return false;
   }
 };
 
@@ -46,7 +48,7 @@ const processTransferBatchEvent = (eventResponse) => {
   const amounts = parseInt(values[TransferEventResultFields.TokenAmount]);
   const tokenIds = values[TransferEventResultFields.TokenId];
 
-  const tokens = tokenIds.map((tokenId, index) => {
+  const tokens = (tokenIds ?? []).map((tokenId, index) => {
     const amount = amounts[index];
 
     return {
