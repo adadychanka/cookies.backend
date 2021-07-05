@@ -4,6 +4,7 @@ const db = (() => {
   const password = process.env.DB_PASSWORD;
   const options = {
     host: process.env.DB_HOST,
+    post: process.env.DB_PORT,
     dialect: "postgres",
     seederStorage: "sequelize",
   };
