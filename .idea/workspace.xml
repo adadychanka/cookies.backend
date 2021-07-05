@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Extend DB config;&#10;Add README.md;">
+    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Try to fix error with connection to remote db; &#10;Add default values to services;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logger/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/logger/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/artPredictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artPredictionsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/artsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/raribleService/raribleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/raribleService/raribleService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/tokensService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/tokensService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +21,7 @@
     <branch-grouping />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dev" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -100,6 +94,7 @@
         <item itemvalue="npm.start" />
         <item itemvalue="npm.start" />
         <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
   </component>
@@ -132,7 +127,7 @@
       <workItem from="1624531447930" duration="1073000" />
       <workItem from="1624982526125" duration="13623000" />
       <workItem from="1625167796523" duration="2690000" />
-      <workItem from="1625512913322" duration="3974000" />
+      <workItem from="1625512913322" duration="4312000" />
     </task>
     <task id="LOCAL-00001" summary="Add cron job running every minute">
       <created>1621702667359</created>
@@ -190,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625516983023</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Try to fix error with connection to remote db; &#10;Add default values to services;">
+      <created>1625519819415</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1625519819415</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +236,8 @@
     <MESSAGE value="Add webstorm folder to ignore" />
     <MESSAGE value="Implement transfer batch event" />
     <MESSAGE value="Extend DB config;&#10;Add README.md;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Extend DB config;&#10;Add README.md;" />
+    <MESSAGE value="Try to fix error with connection to remote db; &#10;Add default values to services;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Try to fix error with connection to remote db; &#10;Add default values to services;" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
