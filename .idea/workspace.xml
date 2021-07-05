@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Try to fix error with connection to remote db; &#10;Add default values to services;">
+    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Remove using pg-native by sequelize">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -127,7 +129,7 @@
       <workItem from="1624531447930" duration="1073000" />
       <workItem from="1624982526125" duration="13623000" />
       <workItem from="1625167796523" duration="2690000" />
-      <workItem from="1625512913322" duration="4312000" />
+      <workItem from="1625512913322" duration="5437000" />
     </task>
     <task id="LOCAL-00001" summary="Add cron job running every minute">
       <created>1621702667359</created>
@@ -192,7 +194,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625519819415</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Remove using pg-native by sequelize">
+      <created>1625520225223</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625520225223</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -237,7 +246,8 @@
     <MESSAGE value="Implement transfer batch event" />
     <MESSAGE value="Extend DB config;&#10;Add README.md;" />
     <MESSAGE value="Try to fix error with connection to remote db; &#10;Add default values to services;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Try to fix error with connection to remote db; &#10;Add default values to services;" />
+    <MESSAGE value="Remove using pg-native by sequelize" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove using pg-native by sequelize" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
