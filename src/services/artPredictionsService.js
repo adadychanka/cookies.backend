@@ -1,4 +1,4 @@
-const { ArtPredictions } = require("../models/artPredictions");
+const { ArtPredictions, modelUtils } = require("../models");
 const logger = require("../logger");
 
 const getArtPredictionsByArt = async (art) => {
@@ -65,7 +65,8 @@ const saveArtPrediction = async (prediction, art, wallet) => {
 
 const buildBasedOnInstance = (instance) => {
   try {
-    const newInstance = ArtPredictions.build(instance.get());
+    const dataObject = modelUtils.fromModelInstanceToObject(instance);
+    const newInstance = ArtPredictions.build(dataObject);
 
     return newInstance;
   } catch (error) {

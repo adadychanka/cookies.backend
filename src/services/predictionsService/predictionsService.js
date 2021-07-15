@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Predictions } = require("../../models/predictions");
+const { Predictions } = require("../../models");
 const { selectRandomPrediction, hasAvailablePredictions, getAvailablePredictions } = require("./utils");
 const artPredictionsService = require("../artPredictionsService");
 const artsService = require("../artsService");

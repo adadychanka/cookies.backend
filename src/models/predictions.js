@@ -16,6 +16,10 @@ const Predictions = sequelize.define(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    link: {
+      type: DataTypes.TEXT,
+      allowNull: true,
+    },
     isActive: {
       type: DataTypes.BOOLEAN,
       defaultValue: false,
