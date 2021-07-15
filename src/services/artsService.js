@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Arts, ArtsMapping } = require("../models/arts");
+const { Arts, ArtsMapping } = require("../models");
 const { Tokens } = require("../models/tokens");
 const logger = require("../logger");
 
