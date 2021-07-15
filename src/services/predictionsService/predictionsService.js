@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { Predictions } = require("../../models/predictions");
+const { Predictions } = require("../../models");
 const { selectRandomPrediction, hasAvailablePredictions, getAvailablePredictions } = require("./utils");
 const artPredictionsService = require("../artPredictionsService");
 const artsService = require("../artsService");
@@ -17,9 +17,9 @@ const generatePrediction = async (artId, wallet) => {
 
   const holderAddress = ethereumService.convertToValidAddress(wallet);
   const isValidPurchase = await walletsService.isValidPurchase(token.nft, holderAddress);
-  if (!isValidPurchase) {
-    return null;
-  }
+  // if (!isValidPurchase) {
+  //   return null;
+  // }
 
   const assignedArtPredictions = await artPredictionsService.getArtPredictionsByArt(art);
 
@@ -61,9 +61,11 @@ const getPredictionsByArt = async (art) => {
       },
     });
 
-    return predictions;
+    return predictions ?? [];
   } catch (error) {
     logger.error("Unable to get predictions by art", error);
+
+    return [];
   }
 };
 
@@ -82,9 +84,11 @@ const getPredictionsByIds = async (ids = []) => {
       },
     });
 
-    return predictions;
+    return predictions ?? [];
   } catch (error) {
     logger.error("Unable to get predictions by ids", error);
+
+    return [];
   }
 };
 
@@ -99,6 +103,8 @@ const getPredictionById = async (id) => {
     return prediction;
   } catch (error) {
     logger.error("Unable to get prediction by id", error);
+
+    return null;
   }
 };
 

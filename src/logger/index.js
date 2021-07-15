@@ -8,8 +8,8 @@ const logger = createLogger({
   format: json(),
   transports: [
     new Console({ format: combine(colorize(), simple()) }),
-    new File({ filename: "info.log", level: "info" }),
-    new File({ filename: "errors.log", level: "error" }),
+    new File({ filename: "logs/info.log", level: "info" }),
+    new File({ filename: "logs/errors.log", level: "error" }),
   ],
 });
 

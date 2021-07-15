@@ -21,7 +21,7 @@ app.use(routes);
 
 db.connect()
   .then(() => {
-    server.listen(4000);
+    server.listen(process.env.PORT);
 
     logger.info("Server started successful");
 

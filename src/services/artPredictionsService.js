@@ -1,4 +1,4 @@
-const { ArtPredictions } = require("../models/artPredictions");
+const { ArtPredictions, modelUtils } = require("../models");
 const logger = require("../logger");
 
 const getArtPredictionsByArt = async (art) => {
@@ -16,6 +16,7 @@ const getArtPredictionsByArt = async (art) => {
     return artPredictions;
   } catch (error) {
     logger.error("Unable to get artPredictions by art", error);
+    return null;
   }
 };
 
@@ -58,16 +59,19 @@ const saveArtPrediction = async (prediction, art, wallet) => {
     return result;
   } catch (error) {
     logger.error("Unable to save artPrediction", error);
+    return null;
   }
 };
 
 const buildBasedOnInstance = (instance) => {
   try {
-    const newInstance = ArtPredictions.build(instance.get());
+    const dataObject = modelUtils.fromModelInstanceToObject(instance);
+    const newInstance = ArtPredictions.build(dataObject);
 
     return newInstance;
   } catch (error) {
     logger.error("Unable build artPrediction", error);
+    return null;
   }
 };
 

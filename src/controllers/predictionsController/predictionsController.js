@@ -1,6 +1,8 @@
-const predictionsService = require("../services/predictionsService");
-const walletsService = require("../services/walletsService");
-const { toApiResult } = require("./utils");
+const predictionsService = require("../../services/predictionsService");
+const walletsService = require("../../services/walletsService");
+const { modelUtils } = require("../../models");
+const { getPredictionWithProcessedLink } = require("./utils");
+const { toApiResult } = require("../utils");
 
 const generatePrediction = async (req, res) => {
   const wallet = req.params?.wallet ?? null;
@@ -25,7 +27,10 @@ const generatePrediction = async (req, res) => {
     return res.status(400).send(result);
   }
 
-  const result = toApiResult(prediction);
+  const predictionDataObject = modelUtils.fromModelInstanceToObject(prediction);
+  const predictionWithLinks = getPredictionWithProcessedLink(predictionDataObject);
+
+  const result = toApiResult(predictionWithLinks);
   return res.status(200).send(result);
 };
 

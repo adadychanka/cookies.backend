@@ -8,6 +8,11 @@
 
 
 ```
+# Only for dev; Heroku set instance post automatically
+PORT=
+
+ENV= DEV | STAGE | PROD
+
 DB_NAME=
 DB_USER=
 DB_PASSWORD=

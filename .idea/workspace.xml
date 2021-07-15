@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Return already generated prediction">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Fix error related to heroku port binding">
+      <change afterPath="$PROJECT_DIR$/src/controllers/predictionsController/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controllers/predictionsController/utils.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controllers/predictionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/predictionsController/predictionsController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/predictions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/predictions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/artPredictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artPredictionsService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/artsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/raribleService/raribleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/raribleService/raribleService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +27,11 @@
   </component>
   <component name="Git.Settings">
     <branch-grouping />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="WARN_ABOUT_CRLF" value="false" />
   </component>
@@ -71,11 +79,11 @@
       <recent name="A:\Projects\Cookies\cookies.backend" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/controllers/predictionsController" />
       <recent name="$PROJECT_DIR$/src/models/arts" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/services/raribleService" />
       <recent name="$PROJECT_DIR$/services/ethereumService/RaribleContract" />
-      <recent name="$PROJECT_DIR$/services/ethereumService" />
     </key>
   </component>
   <component name="RunManager">
@@ -91,6 +99,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -122,7 +133,10 @@
       <workItem from="1623605689968" duration="7491000" />
       <workItem from="1624479732225" duration="1839000" />
       <workItem from="1624531447930" duration="1073000" />
-      <workItem from="1624982526125" duration="13250000" />
+      <workItem from="1624982526125" duration="13623000" />
+      <workItem from="1625167796523" duration="2690000" />
+      <workItem from="1625512913322" duration="8738000" />
+      <workItem from="1625913714432" duration="6680000" />
     </task>
     <task id="LOCAL-00001" summary="Add cron job running every minute">
       <created>1621702667359</created>
@@ -159,7 +173,49 @@
       <option name="project" value="LOCAL" />
       <updated>1625082332364</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Add webstorm folder to ignore">
+      <created>1625087228421</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1625087228421</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Implement transfer batch event">
+      <created>1625087388820</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1625087388820</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Extend DB config;&#10;Add README.md;">
+      <created>1625516983023</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1625516983023</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Try to fix error with connection to remote db; &#10;Add default values to services;">
+      <created>1625519819415</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1625519819415</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Remove using pg-native by sequelize">
+      <created>1625520225223</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1625520225223</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Fix error related to heroku port binding">
+      <created>1625521812759</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1625521812759</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +237,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="stage" />
                       </list>
                     </value>
                   </entry>
@@ -200,7 +256,13 @@
     <MESSAGE value="Move to src" />
     <MESSAGE value="Add route to fetch dogecoin prediction ball art&#10;Fix validation purchase method" />
     <MESSAGE value="Return already generated prediction" />
-    <option name="LAST_COMMIT_MESSAGE" value="Return already generated prediction" />
+    <MESSAGE value="Add webstorm folder to ignore" />
+    <MESSAGE value="Implement transfer batch event" />
+    <MESSAGE value="Extend DB config;&#10;Add README.md;" />
+    <MESSAGE value="Try to fix error with connection to remote db; &#10;Add default values to services;" />
+    <MESSAGE value="Remove using pg-native by sequelize" />
+    <MESSAGE value="Fix error related to heroku port binding" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix error related to heroku port binding" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

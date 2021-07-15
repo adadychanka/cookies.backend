@@ -8,6 +8,8 @@ const getTokenById = async (tokenId) => {
     return token;
   } catch (error) {
     logger.error("Unable to get token", error);
+
+    return null;
   }
 };
 
