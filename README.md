@@ -1,16 +1,26 @@
-# Flow
+# DB
 
-**Dev -> Stage -> Prod**
+### Dev
+Before starting the application you should create db. You can do it through pgAdmin.
+
+### Stage | Prod
+For remote DB management should use pgAdmin 13
+
+---
+
+# Development flow
+
+### Dev -> Stage -> Prod
 
 ---
 
 # Env variables
 
-
 ```
-# Only for dev; Heroku set instance post automatically
+# Only for dev; Heroku set instance port automatically
 PORT=
 
+# For all environmets
 ENV= DEV | STAGE | PROD
 
 DB_NAME=

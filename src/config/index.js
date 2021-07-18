@@ -1,8 +1,4 @@
-const Environment = {
-  DEV: "DEV",
-  STAGE: "STAGE",
-  PROD: "PROD",
-};
+const { isDevelopment } = require("./environment");
 
 const db = (() => {
   const database = process.env.DB_NAME;
@@ -16,7 +12,7 @@ const db = (() => {
     seederStorage: "sequelize",
   };
 
-  if (process.env.ENV !== Environment.DEV) {
+  if (!isDevelopment()) {
     // To connect to remote DB
     const extraOptions = {
       ssl: true,

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Fix error related to heroku port binding">
-      <change afterPath="$PROJECT_DIR$/src/controllers/predictionsController/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controllers/predictionsController/utils.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/utils.js" afterDir="false" />
+    <list default="true" id="67e8ac52-9aec-47c5-a2b8-3d5beefabaa2" name="Default Changelist" comment="Added video to prediction">
+      <change afterPath="$PROJECT_DIR$/src/config/environment.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/db/sql/scripts.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controllers/predictionsController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/controllers/predictionsController/predictionsController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/predictions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/predictions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/artPredictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artPredictionsService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/artsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/artsService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/config/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/predictionsService/predictionsService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/raribleService/RaribleContract/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/raribleService/RaribleContract/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/walletsService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/walletsService.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,7 +135,9 @@
       <workItem from="1624982526125" duration="13623000" />
       <workItem from="1625167796523" duration="2690000" />
       <workItem from="1625512913322" duration="8738000" />
-      <workItem from="1625913714432" duration="6680000" />
+      <workItem from="1625913714432" duration="7103000" />
+      <workItem from="1626618480575" duration="1307000" />
+      <workItem from="1626622325657" duration="7107000" />
     </task>
     <task id="LOCAL-00001" summary="Add cron job running every minute">
       <created>1621702667359</created>
@@ -215,11 +216,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625521812759</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Added video to prediction">
+      <created>1626382371327</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1626382371327</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sql" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -262,7 +273,8 @@
     <MESSAGE value="Try to fix error with connection to remote db; &#10;Add default values to services;" />
     <MESSAGE value="Remove using pg-native by sequelize" />
     <MESSAGE value="Fix error related to heroku port binding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix error related to heroku port binding" />
+    <MESSAGE value="Added video to prediction" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added video to prediction" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
