@@ -1,6 +1,7 @@
 const { RaribleContract } = require("./RaribleContract");
 
 const TransferEventResultFields = {
+  Operator: "0",
   From: "1",
   To: "2",
   TokenId: "3",

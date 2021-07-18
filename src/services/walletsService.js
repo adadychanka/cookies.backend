@@ -1,3 +1,4 @@
+const { isStaging, isDevelopment } = require("../config/environment");
 const ethService = require("./ethereumService");
 const raribleService = require("./raribleService");
 
@@ -27,6 +28,10 @@ const isZeroWallet = (wallet) => {
  */
 const isValidPurchase = async (nft, wallet) => {
   if (!wallet || !nft) return false;
+
+  if (isStaging() || isDevelopment()) {
+    return true;
+  }
 
   const hasTokens = await raribleService.isAddressHoldTokens(wallet, nft);
 

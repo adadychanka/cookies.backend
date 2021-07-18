@@ -1,3 +1,4 @@
+const logger = require("../logger");
 const raribleService = require("./raribleService");
 const artPredictionsService = require("./artPredictionsService");
 const artsService = require("./artsService");
@@ -72,7 +73,14 @@ const trackTransferBatchEventHandler = async (response) => {
 
 const runListenRaribleEvents = async () => {
   const arts = await artsService.getArtsWithNftToTrack();
-  const trackedTokens = arts.map((art) => art.nft).filter((nft) => nft);
+  const trackedTokens = arts
+    .map((art) => {
+      const tokenId = art.nft;
+      return tokenId;
+    })
+    .filter((nft) => nft);
+
+  logger.info(`Start tracking NFT: ${trackedTokens.join(",")}`);
 
   await raribleService.trackTransferSingleEvent(trackTransferSingleEventHandler, trackedTokens);
   await raribleService.trackTransferBatchEvent(trackTransferBatchEventHandler, trackedTokens);
