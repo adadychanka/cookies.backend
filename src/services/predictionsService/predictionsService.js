@@ -17,9 +17,9 @@ const generatePrediction = async (artId, wallet) => {
 
   const holderAddress = ethereumService.convertToValidAddress(wallet);
   const isValidPurchase = await walletsService.isValidPurchase(token.nft, holderAddress);
-  // if (!isValidPurchase) {
-  //   return null;
-  // }
+  if (!isValidPurchase) {
+    return null;
+  }
 
   const assignedArtPredictions = await artPredictionsService.getArtPredictionsByArt(art);
 
